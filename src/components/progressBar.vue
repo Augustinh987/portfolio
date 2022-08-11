@@ -17,7 +17,8 @@
             return{
                 isActive: false,
                 animationName: "progress2",
-                animationDuree: 5
+                animationDuree: 5,
+                anim: null
             }
         },
         methods: {
@@ -42,6 +43,7 @@
             this.animationName = "progress" + entier;
             this.animationDuree = duree;
             console.log(this.animationName);
+
         }
     }
 
