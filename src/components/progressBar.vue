@@ -1,7 +1,7 @@
 <template>
     <div class="p_bar">
         <div class="p_contour">
-            <div class="p_remplissage" id="p_animated"></div>
+            <div class="p_remplissage" id="p_animated" :style="animationStyle"></div>
         </div>
         <font-awesome-icon v-if="isActive" style="color: green;" icon="fa-clipboard-check" class="icon"/>
         <div v-else class="p_loader"></div>
@@ -15,31 +15,40 @@
         name: 'ProgressBar',
         data() {
             return{
-                isActive: false
+                isActive: false,
+                animationName: "progress2",
+                animationDuree: 5
             }
         },
         methods: {
-            f_scroll(refId){
-                const element = document.getElementById(refId);
-                element.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start",
-                    inline: "nearest"
-                    });
-                console.log("coucou");
+            startDebug(){
+                console.log('TEST');
+            }
+        },
+        computed: {
+            animationStyle(){
+                return "animation: " + this.animationName + " " + this.animationDuree + "s forwards;"
             }
         },
         mounted() {
             document.getElementById("p_animated").addEventListener("animationend", () => {
                 this.isActive = true;
             })
+            document.getElementById("p_animated").addEventListener("animationstart", () => {
+                this.isActive = false;
+            })
+            var entier = Math.floor(Math.random()*2)+1;
+            var duree = Math.floor(Math.random()*(8-3+1))+3;
+            this.animationName = "progress" + entier;
+            this.animationDuree = duree;
+            console.log(this.animationName);
         }
     }
-    
 
 </script>
 
 <style>
+
 .p_bar{
     display: flex;
     width: auto;
@@ -64,19 +73,23 @@
 }
 
 .p_remplissage{
-    animation: progress 5s forwards;
     z-index: 1;
     background-color: green;
     height: 100%;
 }
 
-@keyframes progress
+@keyframes progress1
     {
         0% { width: 0%; }
         20% { width: 40%; }
         50% { width: 40%; }
         67% { width: 45%; }
         70% { width: 80%; }
+        100% { width: 100%; }
+    }
+@keyframes progress2
+    {
+        0% { width: 0%; }
         100% { width: 100%; }
     }
 

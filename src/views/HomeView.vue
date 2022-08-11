@@ -2,11 +2,11 @@
   <div class="home">
     <NavBar text = "Work In Progress ..."></NavBar>
     <div class="content">
-      <div id="About">
-        <ProgressBar class="fade-in"></ProgressBar>
+      <div id="About" ref="haha">
+        <ProgressBar v-if=isActove></ProgressBar>
+        <button @click="debugStudies">DEBUG</button>
       </div>
       <div id="Parcours">
-        <ProgressBar class="fade-in"></ProgressBar>
       </div>
       <ProgressBar class="fade-in"></ProgressBar>
     </div>
@@ -17,7 +17,6 @@
 // @ is an alias to /src
 import NavBar from '../components/Navbar.vue'
 import ProgressBar from '@/components/progressBar.vue'
-import {onMounted} from 'vue'
 
 export default {
   name: 'HomeView',
@@ -25,26 +24,38 @@ export default {
     NavBar,
     ProgressBar
     },
-  setup() {
-    onMounted(() => {
+  data(){
+    return {
+      liste: [],
+      isActove: false
+    }
+  },
+  methods: {
+    debugStudies(){
+      this.isActove = !this.isActove;
+    }
+  },
+  mounted(){
+    const options = {
+        rootMargin: '-50px 0px 0px 0px',
+        threshold: 1.0
+      }
+
       const observer = new IntersectionObserver((entries) => {
-        console.log(entries);
         entries.forEach((entry) => {
           if(entry.intersectionRatio == 1){
-            console.log(entry.intersectionRatio)
-            console.log("appear")
             entry.target.classList.add("appear")
           } else {
-            console.log("not appear")
             entry.target.classList.remove("appear")
           }
         })
-      }, {threshold: 1.0})
+      }, options)
+
       const elements = document.querySelectorAll('.fade-in')
       elements.forEach((element) => {
         observer.observe(element);
       })
-    })
+
   }
 }
 
@@ -65,11 +76,23 @@ export default {
     background-color: antiquewhite;
     height: 90vh;
     width: 100%;
+    display: flex;
+    flex-direction: column;
   }
   #Parcours{
     background-color: aqua;
     height: 90vh;
   }
+
+@keyframes progress
+    {
+        0% { width: 0%; }
+        20% { width: 40%; }
+        50% { width: 40%; }
+        67% { width: 45%; }
+        70% { width: 80%; }
+        100% { width: 100%; }
+    }
 
   .home{
     display: flex;
