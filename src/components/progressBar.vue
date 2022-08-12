@@ -33,16 +33,20 @@
         },
         mounted() {
             document.getElementById("p_animated").addEventListener("animationend", () => {
-                this.isActive = true;
+                //this.isActive = true;
             })
             document.getElementById("p_animated").addEventListener("animationstart", () => {
-                this.isActive = false;
+                //this.isActive = false;
             })
             var entier = Math.floor(Math.random()*2)+1;
             var duree = Math.floor(Math.random()*(8-3+1))+3;
             this.animationName = "progress" + entier;
             this.animationDuree = duree;
             console.log(this.animationName);
+            var vm = this;
+            setTimeout(function(){
+                vm.isActive = true;
+            }, vm.animationDuree*1000)
 
         }
     }
