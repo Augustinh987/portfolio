@@ -1,22 +1,20 @@
 <template>
-    <div class="p_bar">
-        <div class="p_contour">
-            <div class="p_remplissage" id="p_animated" :style="animationStyle"></div>
+    <div class="p_bar_ne">
+        <div class="p_contour_ne">
+            <div class="p_remplissage_ne" id="p_animated_ne" :style="animationStyle"></div>
         </div>
-        <font-awesome-icon v-if=isActive style="color: green;" icon="fa-regular fa-circle-check" class="icon"/>
-        <div v-else class="p_loader"></div>
-        <p v-if="isActive" class="p_text">Passed</p>
+        <div class="p_loader_ne"></div>
     </div>
 </template>
 
 <script>
 
     export default{
-        name: 'ProgressBar',
+        name: 'ProgressBarNE',
         data() {
             return{
                 isActive: false,
-                animationName: "progress2",
+                animationName: "",
                 animationDuree: 5,
                 anim: null
             }
@@ -28,7 +26,7 @@
         },
         computed: {
             animationStyle(){
-                return "animation: " + this.animationName + " " + this.animationDuree + "s forwards," + " progress_color " + this.animationDuree + "s forwards;"
+                return "animation: " + this.animationName + " " + this.animationDuree + "s forwards;"
             }
         },
         mounted() {
@@ -40,7 +38,7 @@
             })
             var entier = Math.floor(Math.random()*2)+1;
             var duree = Math.floor(Math.random()*(8-3+1))+3;
-            this.animationName = "progress" + entier;
+            this.animationName = "progressNE" + entier;
             this.animationDuree = duree;
             console.log(this.animationName);
             var vm = this;
@@ -55,7 +53,7 @@
 
 <style>
 
-.p_bar{
+.p_bar_ne{
     display: flex;
     width: auto;
     align-items: center;
@@ -70,7 +68,7 @@
     display: flex;
 }
 
-.p_contour{
+.p_contour_ne{
     width: 200px;
     height: 20px;
     background-color: aliceblue;
@@ -78,35 +76,28 @@
     display: flex;
 }
 
-.p_remplissage{
+.p_remplissage_ne{
     z-index: 1;
     background-color: orange;
     height: 100%;
 }
 
-@keyframes progress_color
-    {
-        0% {background-color: orange;}
-        99.999% {background-color: orange;}
-        100% {background-color: green;}
-    }
-
-@keyframes progress1
+@keyframes progressNE1
     {
         0% { width: 0%; }
         20% { width: 40%; }
         50% { width: 40%; }
         67% { width: 45%; }
-        70% { width: 80%; }
-        100% { width: 100%; }
+        70% { width: 70%; }
+        100% { width: 80%; }
     }
-@keyframes progress2
+@keyframes progressNE2
     {
         0% { width: 0%; }
-        100% { width: 100%; }
+        100% { width: 70%; }
     }
 
-.p_loader {
+.p_loader_ne {
     margin: 0 15px;
     border: 6px solid #f3f3f3; /* Light grey */
     border-top: 6px solid #93a3a3; /* Blue */
@@ -119,11 +110,6 @@
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
-}
-
-.p_text{
-    font-size: 24px;
-    font-weight: bold;
 }
 
 </style>

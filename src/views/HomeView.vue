@@ -2,31 +2,24 @@
   <div class="home">
     <NavBar text = "Work In Progress ..."></NavBar>
     <div class="content">
-      <div id="About" ref="haha">
-        <ProgressBar v-if=isActive></ProgressBar>
-        <ProgressBar v-if=isActive></ProgressBar>
-        <ProgressBar v-if=isActive></ProgressBar>
-        <ProgressBar v-if=isActive></ProgressBar>
-        <button @click="debugStudies">DEBUG</button>
-      </div>
-      <div id="Parcours">
-      </div>
-      <ProgressBar class="fade-in"></ProgressBar>
+      <ProgressBar></ProgressBar>
     </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import NavBar from '../components/Navbar.vue'
+import NavBar from '@/components/Navbar.vue'
 import ProgressBar from '@/components/progressBar.vue'
+import ProgressBarNE from '@/components/progressBarNE.vue'
 
 export default {
   name: 'HomeView',
   components: {
     NavBar,
-    ProgressBar
-    },
+    ProgressBar,
+    ProgressBarNE,
+},
   data(){
     return {
       liste: [],
@@ -106,6 +99,8 @@ export default {
     z-index: -1;
     top: 10vh;
     width: 100%;
+    height: 90vh;
+    background-color: aliceblue;
   }
 
 </style>
