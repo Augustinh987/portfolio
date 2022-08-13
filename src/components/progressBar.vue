@@ -28,7 +28,7 @@
         },
         computed: {
             animationStyle(){
-                return "animation: " + this.animationName + " " + this.animationDuree + "s forwards;"
+                return "animation: " + this.animationName + " " + this.animationDuree + "s forwards," + " progress_color " + this.animationDuree + "s forwards;"
             }
         },
         mounted() {
@@ -80,9 +80,16 @@
 
 .p_remplissage{
     z-index: 1;
-    background-color: green;
+    background-color: orange;
     height: 100%;
 }
+
+@keyframes progress_color
+    {
+        0% {background-color: orange;}
+        99.999% {background-color: orange;}
+        100% {background-color: green;}
+    }
 
 @keyframes progress1
     {

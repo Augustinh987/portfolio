@@ -3,10 +3,10 @@
     <NavBar text = "Work In Progress ..."></NavBar>
     <div class="content">
       <div id="About" ref="haha">
-        <ProgressBar v-if=isActove></ProgressBar>
-        <ProgressBar v-if=isActove></ProgressBar>
-        <ProgressBar v-if=isActove></ProgressBar>
-        <ProgressBar v-if=isActove></ProgressBar>
+        <ProgressBar v-if=isActive></ProgressBar>
+        <ProgressBar v-if=isActive></ProgressBar>
+        <ProgressBar v-if=isActive></ProgressBar>
+        <ProgressBar v-if=isActive></ProgressBar>
         <button @click="debugStudies">DEBUG</button>
       </div>
       <div id="Parcours">
@@ -30,12 +30,12 @@ export default {
   data(){
     return {
       liste: [],
-      isActove: false
+      isActive: false
     }
   },
   methods: {
     debugStudies(){
-      this.isActove = !this.isActove;
+      this.isActive = !this.isActive;
     }
   },
   mounted(){
