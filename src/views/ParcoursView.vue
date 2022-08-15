@@ -1,5 +1,5 @@
 <template>
-  <div id="About" class="content_div">
+  <div id="Parcours" class="content_div">
     
   </div>
 </template>
@@ -23,10 +23,10 @@
 
 
 <style>
-#About{
+#Parcours{
   width: 100%;
   height: 90vh;
-  background-color: beige;
+  background-color: bisque;
 }
 
 </style>

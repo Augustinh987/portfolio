@@ -2,7 +2,8 @@
   <div class="home">
     <NavBar text = "Work In Progress ..."></NavBar>
     <div class="content">
-      <ProgressBar></ProgressBar>
+      <AboutView></AboutView>
+      <ParcoursView></ParcoursView>
     </div>
   </div>
 </template>
@@ -12,6 +13,8 @@
 import NavBar from '@/components/Navbar.vue'
 import ProgressBar from '@/components/progressBar.vue'
 import ProgressBarNE from '@/components/progressBarNE.vue'
+import AboutView from './AboutView.vue'
+import ParcoursView from './ParcoursView.vue'
 
 export default {
   name: 'HomeView',
@@ -19,6 +22,8 @@ export default {
     NavBar,
     ProgressBar,
     ProgressBarNE,
+    AboutView,
+    ParcoursView
 },
   data(){
     return {
@@ -99,8 +104,9 @@ export default {
     z-index: -1;
     top: 10vh;
     width: 100%;
-    height: 90vh;
     background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
   }
 
 </style>
