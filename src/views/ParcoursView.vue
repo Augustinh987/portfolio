@@ -26,7 +26,7 @@
 #Parcours{
   width: 100%;
   height: 90vh;
-  background-color: bisque;
+  background-color: transparent;
 }
 
 </style>

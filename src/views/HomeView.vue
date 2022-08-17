@@ -42,20 +42,20 @@ export default {
         threshold: 1.0
       }
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if(entry.intersectionRatio == 1){
-            entry.target.classList.add("appear")
-          } else {
-            entry.target.classList.remove("appear")
-          }
-        })
-      }, options)
-
-      const elements = document.querySelectorAll('.fade-in')
-      elements.forEach((element) => {
-        observer.observe(element);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if(entry.intersectionRatio == 1){
+          entry.target.classList.add("appear")
+        } else {
+          entry.target.classList.remove("appear")
+        }
       })
+    }, options)
+
+    const elements = document.querySelectorAll('.fade-in')
+    elements.forEach((element) => {
+      observer.observe(element);
+    })
 
   }
 }
@@ -71,18 +71,6 @@ export default {
   .appear{
     opacity: 1;
     transition: opacity 500ms ease-in;
-  }
-
-  #About{
-    background-color: antiquewhite;
-    height: 90vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-  #Parcours{
-    background-color: aqua;
-    height: 90vh;
   }
 
 @keyframes progress
@@ -104,7 +92,8 @@ export default {
     z-index: -1;
     top: 10vh;
     width: 100%;
-    background-color: aliceblue;
+    background-image: url('@/assets/chalkboard.jpg');
+    background-color: rgb(22, 0, 73);
     display: flex;
     flex-direction: column;
   }

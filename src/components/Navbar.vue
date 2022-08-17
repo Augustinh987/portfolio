@@ -87,25 +87,24 @@ export default{
         margin-left: 50px;
         color: azure;
     }
-
     .nav_title::before{
         position: absolute;
         content: '';
         width: 50px;
         height: 20px;
-        top: 30px;
+        top: 20px;
+        left: 190px;
         transform: translateX(-160px);
         border-top: solid 4px red;
         border-left: solid 6px red;
     }
-    
     .nav_title::after{
         position: absolute;
         content: '';
         width: 50px;
         height: 20px;
-        bottom: 30px;
-        left: 300px;
+        bottom: 20px;
+        left: 310px;
         border-bottom: solid 4px red;
         border-right: solid 6px red;
     }
