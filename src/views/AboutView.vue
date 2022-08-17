@@ -8,7 +8,7 @@
         <img class="rond" src="@/assets/logo_react.png"/>
       </div>
       <div class="rond_holder">
-        <img class="rond" src="@/assets/logo_vue.png"/>
+        <img class="rond" src="@/assets/logo.png"/>
       </div>
       <div class="rond_holder">
         <img class="rond" src="@/assets/logo_python.png"/>
@@ -43,10 +43,15 @@
         element.style.left = 50 + (40*Math.cos(theta)) + "%";
         element.style.top = 50 + (40*Math.sin(theta)) + "%";
       }
+      function tailleCercle(element, size){
+        element.style.width = size;
+        element.style.height = size;
+      }
 
       const cercles = document.getElementsByClassName("rond_holder");
       for(let i = 0; i<cercles.length; i++){
         let theta = ((Math.PI * 2) / cercles.length) * i;
+        tailleCercle(cercles[i], Math.sqrt(2*75*75) + "px");
         positionCercle(cercles[i], theta);
       }
     }
@@ -65,25 +70,26 @@
 }
 
 .rond{
-  position: absolute;
-  background-color: azure;
+  background-color: transparent;
   height: 75px;
   width: 75px;
-  border-radius: 50%;
   display: inline-block;
-  animation: reverse_spin 25s linear infinite;
+  /*animation: reverse_spin 25s linear infinite;*/
 }
 
 .rond_holder{
-  height: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background-color: azure;
   position: absolute;
+  border-radius: 50%;
+  border: 1px solid grey;
+  transform: translate(-50%, -50%);
+  background-color: azure;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .rond_holder:hover{
   background-color: rgb(200, 255, 255);
-  transform: scale(1.5);
+  transform: translateY(-50%, -50%) scale(1.5);
 }
 
 .competences{
@@ -93,9 +99,9 @@
   height: 50vh;
   width: 50vh;
   border-radius: 50%;
-  animation: spin 25s linear infinite;
+  /*animation: spin 25s linear infinite;*/
   margin: 20px;
-  top: 20%;
+  top: 50%;
   transform: translateY(-50%);
   right: 10%;
 }
@@ -106,8 +112,8 @@
 }
 
 @keyframes reverse_spin {
-  0% { transform: translate(-50%, -50%) rotate(360deg) }
-  100% { transform: translate(-50%, -50%) rotate(0deg) }
+  0% { transform: rotate(360deg) }
+  100% { transform: rotate(0deg) }
 }
 
 
