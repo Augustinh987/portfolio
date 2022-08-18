@@ -65,6 +65,7 @@ export default{
 <style>
 
     .navbar {
+        z-index: 1;
         display: flex;
         position: fixed;
         top: 0;

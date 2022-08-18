@@ -89,7 +89,6 @@ export default {
 
   .content{
     position: absolute;
-    z-index: -1;
     top: 10vh;
     width: 100%;
     background-image: url('@/assets/chalkboard.jpg');
