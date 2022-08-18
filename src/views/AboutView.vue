@@ -76,35 +76,8 @@ import SkillHolder from "../components/SkillHolder.vue";
   transform: translateY(-50%);
 }
 .skills_div:hover{
-  transform: translateY(-50%) scale(1.01);
+  transform: translateY(-50%) scale(1.1);
   background-color: rgba(240, 255, 255, 0.1);
-}
-.skills_div:hover .cv_btn{
-  position: absolute;
-  display: inline-block;
-  font-size: 50px;
-  font-weight: bold;
-  border-radius: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%) scale(0.990099);
-}
-
-
-.cv_btn{
-  position: absolute;
-  z-index: 0;
-  background-color: rgba(255, 217, 0, 0.575);
-  display: inline-block;
-  font-size: 50px;
-  font-weight: bold;
-  border-radius: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 20vh;
-  height: 20vh;
-}
-.cv_btn:hover{
-  background-color: gold;
 }
 
 a {

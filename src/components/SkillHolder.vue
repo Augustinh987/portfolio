@@ -1,5 +1,4 @@
 <template>
-
     <div @mouseover="hover = true" @mouseleave="hover = false" class="rond_holder">
         <img class="rond" v-bind:src="require(`@/assets/${image}`)"/>
         <div v-if="hover" class="element_description">
@@ -7,7 +6,6 @@
           <h2>{{lvl}}</h2>
         </div>
     </div>
-
 </template>
 
 
